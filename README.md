@@ -1,4 +1,4 @@
-# Physiotherapy RAG Chatbot
+# Physiotherapy RAG Agent
 ## Overview
 This project is a Retrieval-Augmented Generation (RAG) agent that powers a conversational interface to answer user questions about physiotherapy, massage, and therapy techniques. It leverages LlamaIndex, OpenAI's GPT models, and a curated physiotherapy dataset to provide accurate, context-aware responses.
 
