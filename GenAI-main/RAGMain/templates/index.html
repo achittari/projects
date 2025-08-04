@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CoffeeBot</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: #f3f3f3;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+            font-weight: 600;
+            font-size: 28px;
+        }
+
+        .chat-box {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: #f9fafb;
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            padding: 20px;
+            min-height: 200px;
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 18px;
+            line-height: 1.5;
+        }
+
+        .user {
+            align-self: flex-end;
+            background-color: #d1e7dd;
+            color: #1b4332;
+            text-align: right;
+        }
+
+        .bot {
+            align-self: flex-start;
+            background-color: #e2e3e5;
+            color: #333;
+            text-align: left;
+        }
+
+        form {
+            display: flex;
+            gap: 10px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 12px 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        input[type="text"]:focus {
+            border-color: #6c757d;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background-color: #6f4e37;
+            color: white;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #5c3e2b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>CoffeeBot ☕</h2>
+        <div class="chat-box">
+            {% if user_query %}
+                <div class="message user"><b>You:</b><br>{{ user_query }}</div>
+            {% endif %}
+            {% if chat_log %}
+                <div class="message bot"><b>CoffeeBot:</b><br>{{ chat_log }}</div>
+            {% endif %}
+        </div>
+
+        <form method="POST">
+            <input type="text" name="query" autocomplete="off" placeholder="Ask a coffee question..." required>
+            <input type="submit" value="Send">
+        </form>
+    </div>
+</body>
+</html>
